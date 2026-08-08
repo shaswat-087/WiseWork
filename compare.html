@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>WiseWork - Compare</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen bg-gray-100 flex flex-col bg-cover bg-no-repeat bg-center"
+  style="background-image: url('https://media.sciencebasedtargets.org/production/media/City-cover.jpg?w=1600&h=971&q=95&auto=format&fit=min&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1734357490&s=987d154ccbe33494787b417d89216139');">
+
+<header class="flex h-[120px] w-full items-center justify-center mt-[20px] pb-[30px] text-center text-[36px] font-bold font-['Trebuchet_MS',sans-serif]">
+  <div class="w-[580px] py-2 bg-[#e5ceb2] text-[#473b2b] rounded-[18px]  shadow-md">
+     WiseWork
+  </div>
+</header>
+
+  <div class="flex flex-1 overflow-hidden ">
+
+    <div class="flex-1 p-8 flex flex-col items-center overflow-y-auto">
+      
+      <div class="justify-center w-full max-w-xl bg-white/20 p-6 rounded-2xl shadow-xl border border-white/30 backdrop-blur-xl">
+        <h2 class="text-3xl font-semibold text-blue-900 mb-4">
+          Compare Two Workplaces
+        </h2>
+
+        <form action="/compare" method="post" class="space-y-4">
+          <div class="flex gap-4">
+            <input
+              type="text"
+              name="city1"
+              placeholder="Enter first city"
+              required
+              class="w-1/2 rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white/80"
+            />
+            <input
+              type="text"
+              name="city2"
+              placeholder="Enter second city"
+              required
+              class="w-1/2 rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white/80"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-blue-900 px-4 py-3 text-white font-medium hover:bg-blue-800 transition"
+          >
+            Compare
+          </button>
+        </form>
+      </div>
+
+      {% if message %}
+      <div class=" w-full max-w-xl mt-6 max-h-[500px] overflow-y-auto text-2xl bg-white/45 backdrop-blur-lg p-6 rounded-2xl shadow-2xl border border-white/60 space-y-6 text-gray-900 pr-4  font-['Trebuchet_MS',sans-serif]">
+        <h3 class="text-2xl font-bold text-blue-950 border-b border-blue-900/20 pb-2">
+          Comparison: {{ message.city_1 }} vs {{ message.city_2 }}
+        </h3>
+
+        <div>
+          <h4 class="font-bold text-blue-900 text-xl"> IT Sector & Tech</h4>
+          <ul class="list-disc list-inside space-y-1 mt-1 text-lg">
+            {% for item in message.it %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-blue-900 text-xl"> Core Industries</h4>
+          <ul class="list-disc list-inside space-y-1 mt-1 text-lg">
+            {% for item in message.core %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-blue-900 text-xl"> Work-Life Balance</h4>
+          <ul class="list-disc list-inside space-y-1 mt-1 text-lg">
+            {% for item in message.wlb %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-blue-900 text-xl"> Climate & Weather</h4>
+          <ul class="list-disc list-inside space-y-1 mt-1 text-lg">
+            {% for item in message.climate %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        
+        <div>
+          <h4 class="font-bold text-blue-900 text-2xl">🏛️ Culture & Constraints</h4>
+          <ul class="list-disc list-inside space-y-1 mt-1 text-lg">
+            {% for item in message.culture %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+       
+        <div class="bg-blue-900/10 p-4 rounded-xl border border-blue-900/20 backdrop-blur-sm">
+          <h4 class="font-bold text-blue-950 text-2xl">💡 Strategic Advice</h4>
+          <ul class="list-disc list-inside space-y-1 mt-1 text-lg">
+            {% for item in message.guidance %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+      {% endif %}
+
+    </div>
+
+   
+  <aside class="w-80 bg-gray-200 border-l border-gray-300 p-6 overflow-y-auto">
+
+      <h3 class="text-xl font-semibold text-blue-900 mb-4">
+        Key Features
+      </h3>
+
+      <div class="space-y-4">
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Salary Comparison</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Compare average salary packages and compensation benefits.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Work-Life Balance</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Check flexibility, stress levels, and workplace culture ratings.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Career Growth</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Explore promotion opportunities and long-term growth potential.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Remote / Hybrid Support</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Find whether the company supports remote or hybrid work.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Learning Opportunities</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Compare training programs, mentorship, and skill development.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Employee Reviews</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Read summarized employee experiences and workplace insights.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Company Benefits</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Compare insurance, bonuses, leave policies, and other benefits.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <h4 class="font-semibold text-gray-800">Placement Insights</h4>
+          <p class="text-sm text-gray-600 mt-1">
+            Useful for students evaluating campus placement opportunities.
+          </p>
+        </div>
+
+      </div>
+
+    </aside>
+  </div>
+</body>
+</html>

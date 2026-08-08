@@ -1,0 +1,131 @@
+*{    margin: 0%;
+    padding: 0%;
+}
+
+header {
+   height: 100px;
+   
+   
+    align-items: center;
+    font-size: 30px;
+   
+    padding-bottom: 30px;
+    font-weight: bold;
+   
+    width: 100%;
+    font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shadow{
+    background-color: #e5ceb2;
+    color: #473b2b;
+    width:500px;
+    border-radius: 15px;
+    opacity: 0.78;
+
+}
+body{
+   background-image:url("https://img.freepik.com/premium-vector/digital-structure-painting-night-cityscape_1021328-6051.jpg") ;
+   background-size: cover;
+   height: 100vh;
+   background-repeat: no-repeat;
+   display: flex;
+   flex-direction: column;
+
+}
+
+.portals{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    margin-top: 140px;
+    font-family: 'Trebuchet MS';
+}
+
+.student{
+    background-color: #e5ceb2;
+    opacity: 0.78;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: justify; 
+    color: #473b2b;
+    font-weight: bold;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 30px;
+    border: 7px solid #473b2b;
+
+
+}
+
+
+.shadow i{
+    font-size: 30px;
+    color: #473b2b;
+
+}
+.student i {
+  font-size: 25px;   /* make it bigger */
+  color: #473b2b;       /* force white color */
+  margin-right: 15px;
+}
+
+.student h3,.admin h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 18px;
+    color:#473b2b;
+    margin-bottom: 50px;
+}
+
+.student h2,.admin h2{
+    margin-bottom: 50px;
+}
+.btn1,.btn2,.btn3{
+
+    padding: 20px;
+    font-size: 18px;
+    margin-top: 30px;
+    background-color: solid;
+    
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #7f2929;
+}
+
+.btn1 a,.btn2 a,.btn3 a{
+    color: #7f2929;
+}
+
+
+
+
+.admin{
+    background-color: #e5ceb2;
+    opacity: 0.78;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: justify; 
+    color: #473b2b;
+    font-weight: bold;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 30px;
+    border: 7px solid #473b2b;
+
+
+}
+
+.admin i {
+  font-size: 25px;   /* make it bigger */
+  color:#473b2b;       /* force white color */
+  margin-right: 15px;
+}

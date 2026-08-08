@@ -1,0 +1,126 @@
++<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cities</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="city">
+  <header>
+    <div class="shadow">
+    <h1>  <i class="fa-solid fa-city"></i>WiseWork </h1>
+    </div>
+    
+  </header>
+   
+   
+
+  <form method="POST" action="/city">
+    <div class="details">
+    <br>
+    
+    <label for="Cityname"><b> City Name</b> </label>
+    <input type="text" id="Cityname" name="Cityname" placeholder="Enter your workplace town" required>
+    
+
+
+    
+    <input class="calculate" type="submit" value="Get details">
+    
+  </form>
+  <div class="output-box">
+    {% if message %}
+        <h2>Analysis for: {{ message.city }}</h2>
+        
+        <div class="section-block">
+            <h3>Introduction</h3>
+            {% if message.intro is iterable and message.intro is not string %}
+                <ul>
+                    {% for item in message.intro %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>{{ message.intro }}</p>
+            {% endif %}
+        </div>
+
+        <div class="section-block">
+            <h3>IT Sector</h3>
+            <ul>
+                {% for item in message.it %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h3>Core Industries</h3>
+            <ul>
+                {% for item in message.core %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h3>Work-Life Balance</h3>
+            <ul>
+                {% for item in message.wlb %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h3>Climate</h3>
+            <ul>
+                {% for item in message.climate %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h3>Culture & Community</h3>
+            <ul>
+                {% for item in message.culture %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h3>Government Initiatives</h3>
+            <ul>
+                {% for item in message.govt %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+                <div class="section-block">
+            <h3>Tips for a fresher </h3>
+            <ul>
+                {% for item in message.fresher %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>Let's discover the culture of your workplace...</p>
+    {% endif %}
+    </div>
+
+    
+  </div>
+   
+  
+  
+
+  
+ 
+</body>
+</html>

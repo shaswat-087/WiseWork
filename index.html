@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style3.css')}}">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header>
+    <div class="shadow">
+    <h1>   <i class="fa-solid fa-city"></i> WiseWork </h1>
+    </div>    
+    
+    
+</header>
+   <div class="portals">
+    <div class="student">
+         <h3> <i class="fas fa-user"></i>
+       KNOW ABOUT YOUR WORKPLACE </h3>
+        <h2> Details of cities </h2><br>
+        <p> Proffesionals can see how a city fits their preferences in terms of <br>
+            job opportunities, salaries, worklife balance </p>
+        <button class="btn1"><a href="{{url_for('city')}}"> See Details </a> </button>
+    </div>
+
+    <div class="admin">
+         <h3><i class="fas fa-user"></i>
+        COMPARE WORKPLACES </h3>
+        <h2> View Comparison Table </h2><br>
+        <p> Compare two cities as workplaces and see which fits your preferences better </p>
+        <button class="btn2"> <a href="{{url_for('compare')}}">See Comparison </a></button>
+    </div>
+    </div>
+
+    </body>
+</html>
