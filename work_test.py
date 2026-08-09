@@ -91,7 +91,7 @@ from functools import lru_cache
 
 
            
-def client(selected_schema,system_prompt,user_prompt):    
+def fetch_client(selected_schema,system_prompt,user_prompt):    
  client = Groq(api_key=os.getenv("GROQ_API_KEY"))
  response=client.chat.completions.create(
     model="openai/gpt-oss-120b",
@@ -143,19 +143,19 @@ def client(selected_schema,system_prompt,user_prompt):
 
 @lru_cache(maxsize=100)
 def cached_city(city_name: str):
-    city = city_name.strip().title()
-    grounding = search(f"{city} tech salaries core industries infrastructure govt developments reddit workplace culture 2025 2026")
-    user_prompt = f"Analyze workplace culture in {city}.\n\n### SEARCH GROUNDING CONTEXT:\n{grounding}"
-    return client(City_Analysis,system_prompt, user_prompt)
+    city=city_name.strip().title()
+    grounding=search(f"{city} tech salaries core industries infrastructure govt developments reddit workplace culture 2025 2026")
+    user_prompt=f"Analyze workplace culture in {city}.\n\n### SEARCH GROUNDING CONTEXT:\n{grounding}"
+    return fetch_client(City_Analysis,system_prompt, user_prompt)
 
 
 @lru_cache(maxsize=100)
 def cached_comparison(city1: str, city2: str):
-    c1, c2 = city1.strip().title(), city2.strip().title()
-    g1 = search(f"{c1} tech salaries core industries workplace culture climate govt initiatives 2025 2026")
-    g2 = search(f"{c2} tech salaries core industries workplace culture climate govt initiatives 2025 2026")
-    user_prompt = f"Compare workplace culture in {c1} vs {c2}.\n\n### SEARCH GROUNDING CONTEXT FOR {c1}:\n{g1}\n\n### SEARCH GROUNDING CONTEXT FOR {c2}:\n{g2}"
-    return client(City_Compare, system_prompt,user_prompt)
+    c1,c2=city1.strip().title(), city2.strip().title()
+    g1=search(f"{c1} tech salaries core industries workplace culture climate govt initiatives 2025 2026")
+    g2=search(f"{c2} tech salaries core industries workplace culture climate govt initiatives 2025 2026")
+    user_prompt=f"Compare workplace culture in {c1} vs {c2}.\n\n### SEARCH GROUNDING CONTEXT FOR {c1}:\n{g1}\n\n### SEARCH GROUNDING CONTEXT FOR {c2}:\n{g2}"
+    return fetch_client(City_Compare, system_prompt,user_prompt)
 
 @app.route("/city",methods=['GET','POST'])
 def city():
